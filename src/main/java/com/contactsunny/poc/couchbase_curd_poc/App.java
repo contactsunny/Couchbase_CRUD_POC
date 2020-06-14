@@ -32,14 +32,14 @@ public class App implements CommandLineRunner {
         JsonObject user = JsonObject.create();
         user.put("id", id);
         user.put("name", "Sunny");
-        user.put("email", "sunny.3mysore@gmail.com");
+        user.put("email", "sunny@contactsunny.com");
         JsonDocument result = couchbaseService.saveUser(id, user);
         logger.info("Upsert Result: " + result);
 
         JsonDocument retrievedDocument = couchbaseService.getDocumentWithId(id);
         logger.info("Retrieved document: " + retrievedDocument);
 
-        DocumentFragment<Mutation> updateResult = couchbaseService.updateUser(id, "sunny@contactsunny.com");
+        DocumentFragment<Mutation> updateResult = couchbaseService.updateUser(id, "sunny1@contactsunny.com");
         logger.info("Updated result: " + updateResult.toString());
 
         JsonDocument deleteResult = couchbaseService.deleteDocument(id);
